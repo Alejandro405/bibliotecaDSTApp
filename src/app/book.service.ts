@@ -16,15 +16,15 @@ export class BookService {
         return this.http.get<Book[]>(`${this.apiServerUrl}/book/all`);
     }
 
-    public addBook(book: Book): Observable<Book> {
+    public addBook(book: Book | undefined): Observable<Book> {
         return this.http.post<Book>(`${this.apiServerUrl}/book/add`, book);
     }
 
-    public updateEmployee(book: Book): Observable<Book> {
+    public updateEmployee(book: Book | undefined): Observable<Book> {
         return this.http.put<Book>(`${this.apiServerUrl}/book/update`, book);
     }
 
-    public deleteEmployee(bookId: number): Observable<void> {
+    public deleteEmployee(bookId: number | undefined): Observable<void> {
         return this.http.delete<void>(`${this.apiServerUrl}/book/delete/${bookId}`);
     }
 }
