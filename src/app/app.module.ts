@@ -7,13 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookService } from './book.service';
 import { RegisterUserComponent } from './register-user/register-user.component';
-import { LoginrUserComponent } from './loginr-user/loginr-user.component';
+import { LoginUserComponent } from './login-user/login-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterUserComponent,
-    LoginrUserComponent
+    LoginUserComponent,
   ],
   imports: [
     BrowserModule,
