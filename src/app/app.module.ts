@@ -6,14 +6,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookService } from './book.service';
-import { RegisterUserComponent } from './register-user/register-user.component';
-import { LoginUserComponent } from './login-user/login-user.component';
+import { LoginUserComponent } from './components/login-user/login-user.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterUserComponent,
     LoginUserComponent,
+    RegisterUserComponent,
   ],
   imports: [
     BrowserModule,
