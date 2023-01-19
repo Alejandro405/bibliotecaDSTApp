@@ -1,8 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
-import { Book } from './Book';
-import { BookService } from './book.service';
+import { Book } from './entities/Book';
+import { BookService } from './services/book.service';
 
 @Component({
   selector: 'app-root',
