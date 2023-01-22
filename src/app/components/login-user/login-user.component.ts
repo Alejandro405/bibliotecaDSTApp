@@ -5,6 +5,7 @@ import { NgForm, FormsModule } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { User } from 'src/app/entities/User';
 import { LoginUserService } from 'src/app/services/login-user.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login-user',
@@ -13,10 +14,11 @@ import { LoginUserService } from 'src/app/services/login-user.service';
 })
 export class LoginUserComponent {
   public users: User[] = []; 
-  email: any;
+  
+  nick: any;
   password: any;
   
-  constructor(private loginService: LoginUserService, private router: Router) { }
+  constructor(private loginService: LoginUserService, private router: Router, private cookie: CookieService) { }
 
   ngOnInit(): void {  
     this.getUsers();
@@ -36,15 +38,11 @@ export class LoginUserComponent {
   public onSignIn(addForm: NgForm): void {
     const loginForm = addForm;
     console.log(addForm.value);
-    this.loginService.peekUser(loginForm.value).subscribe(
+    this.loginService.contaUserByNick(loginForm.value).subscribe(
       (response: User) => {
         // Redireccionamiento al componente del catálogo
-
-        // How to redirecto another angular component from a typescript component?
+        this.cookie.set("SessionStatus", "Logged")
         this.router.navigateByUrl('catalog');
-
-//Source: https://stackoverflow.com/questions/60226392
-
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

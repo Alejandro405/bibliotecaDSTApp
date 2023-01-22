@@ -17,6 +17,6 @@ export class RegisterUserService {
   }
 
   public validNick(user: User | undefined): Observable<User> {
-    return this.http.get<User>(`${this.apiServerUrl}/getByName/${user?.nick}`);
+    return this.http.get<User>(`${this.apiServerUrl}/contains/nick=${user?.nick}`);
   }
 }

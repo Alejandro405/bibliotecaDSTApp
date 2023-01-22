@@ -11,6 +11,7 @@ import { RegisterUserComponent } from './components/register-user/register-user.
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginUserService } from './services/login-user.service';
+import { CatalogGuardGuard } from './catalog-guard.guard';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { LoginUserService } from './services/login-user.service';
     BrowserModule,
     RouterModule.forRoot([
       {path:'', component: LoginUserComponent},
-      {path: 'catalog', component: CatalogComponent},
+      {path: 'catalog',canActivate: [CatalogGuardGuard], canLoad: [CatalogGuardGuard], component: CatalogComponent},
       {path: 'login', component: LoginUserComponent},
       {path: 'register', component: RegisterUserComponent}
     ]),

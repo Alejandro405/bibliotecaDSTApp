@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/enviroments/enviroment';
@@ -36,7 +36,7 @@ export class LoginUserService {
     return this.http.get<User>(`${this.apiServerUrl}/get/${userID}`);    
   }
 
-  public peekUser(user: User | undefined): Observable<User> {
-    return this.http.post<User>(`${this.apiServerUrl}/get`, user);
+  public contaUserByNick(user: User | undefined): Observable<User> {
+    return this.http.get<User>(`${this.apiServerUrl}/contains/nick=${user?.nick}`);
   }
 }
