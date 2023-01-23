@@ -1,11 +1,3 @@
-## Plantilla de Documentación de Soporte y Uso de herramientas digitales - README.md
-Esta es una plantilla basada en los estándares de la Guía de publicacion de herramientas digitales del BID. Sabemos que no existe un solo estándar para la documentación de soporte y uso de herramientas digitales pero hemos recopilado estas características importantes que debe tener un readme.md para facilitar el uso y amplificar el potencial de impacto de las mismas. Cualquier comentario o recomendación les pedimos generar un issue de consulta o escribirnos directamente a code@iadb.org.
-
-## La plantilla empieza aquí 👇
-
-
-*Esta herramienta digital forma parte del catálogo de herramientas del **Banco Interamericano de Desarrollo**. Puedes conocer más sobre la iniciativa del BID en [code.iadb.org](https://code.iadb.org)*
-
 <h1 align="center">Aplicacion Front-End del Catálogo Digital  de la Librería</h1>
 <p align="center"> Logo e imagen o gif de la interfaz principal de la herramienta</p>
 <p align="center"><img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ffiles.logoscdn.com%2Fv1%2Fassets%2F13817708%2Foptimized&sp=1674488654T98dd8a26a60434181c6c96a20ea45c880419f0f89c0ec5b03f1a74b7c118860e"/></p> 
@@ -15,43 +7,95 @@ Esta es una plantilla basada en los estándares de la Guía de publicacion de he
 ---
 
 - [Descripción y contexto](#descripción-y-contexto)
-- [Guía de usuario](#guía-de-usuario)
 - [Guía de instalación](#guía-de-instalación)
-- [Cómo contribuir](#cómo-contribuir)
 - [Autor/es](#autores)
 - [Información adicional](#información-adicional)
 
 ## Descripción y contexto
 
 ---
-Esto es un archivo README. Debe contener la documentación de soporte uso de la herramienta digital. Las siguientes secciones son las secciones recomendadas que debes poner incluir en cualquier herramienta digital. Puedes descargar este archivo para que te sirva como plantilla.
 
-Asegúrate de empezar este archivo con una breve descripción sobre las funcionalidades y contexto de la herramienta digital. Sé conciso y al grano.
+Siguiendo con la arquitectura cliente-servidor, esta aplicación tiene como objetivo efectuar peticiones a la aplicación de backend para capturar las respuestas del backend y mostrarla al usuario. De este modo la aplicacion de Front-End actuaría a modo de cliente mientras que la aplicación de Back-End actuaría como servidor .
 
-## Guía de usuario
----
-Explica los pasos básicos sobre cómo usar la herramienta digital. Es una buena sección para mostrar capturas de pantalla o gifs que ayuden a entender la herramienta digital.
+![](https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fcynoteck.com%2Fwp-content%2Fuploads%2F2021%2F12%2FWeb-Application-Architecture-diagram-3.png&sp=1674493724T5de838e74699e59bd98b565f0fc9e8da75e2325643b22aa2edfc2fb86d54ba90)
+
 
 ## Guía de instalación
 ---
-Paso a paso de cómo instalar la herramienta digital. En esta sección es recomendable explicar la arquitectura de carpetas y módulos que componen el sistema.
 
-Según el tipo de herramienta digital, el nivel de complejidad puede variar. En algunas ocasiones puede ser necesario instalar componentes que tienen dependencia con la herramienta digital. Si este es el caso, añade también la siguiente sección.
+En primer lugar es necesario instlar [versiones compatibles](https://angular.io/cli) de [Angular CLI](https://angular.io/cli) y [NodeJS](https://nodejs.org/en/download/)). Se aconseja usar la siguiente configuración para evitar error e incompatibilidades:
 
-La guía de instalación debe contener de manera específica:
-- Los requisitos del sistema operativo para la compilación (versiones específicas de librerías, software de gestión de paquetes y dependencias, SDKs y compiladores, etc.).
-- Las dependencias propias del proyecto, tanto externas como internas (orden de compilación de sub-módulos, configuración de ubicación de librerías dinámicas, etc.).
-- Pasos específicos para la compilación del código fuente y ejecución de tests unitarios en caso de que el proyecto disponga de ellos.
+```sh { background=true }
+❯ ng version
 
-### Dependencias
-Descripción de los recursos externos que generan una dependencia para la reutilización de la herramienta digital (librerías, frameworks, acceso a bases de datos y licencias de cada recurso). Es una buena práctica describir las últimas versiones en las que ha sido probada la herramienta digital.
 
-    Puedes usar este estilo de letra diferenciar los comandos de instalación.
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+    
+
+Angular CLI: 15.1.1
+Node: 18.10.0
+Package Manager: npm 8.19.2
+OS: linux x64
+
+Angular: 15.1.1
+... animations, cli, common, compiler, compiler-cli, core, forms
+... platform-browser, platform-browser-dynamic, router
+
+Package                         Version
+---------------------------------------------------------
+@angular-devkit/architect       0.1501.1
+@angular-devkit/build-angular   15.1.1
+@angular-devkit/core            15.1.1
+@angular-devkit/schematics      15.1.1
+@schematics/angular             15.1.1
+rxjs                            7.8.0
+typescript                      4.9.4
+```
+
+Una vez se tienen las versiones correctas de las librerías y dependencias del entorno basta con ejecutar el siguiente comando `ng serve` para compilar y desplegar el proyecto:
+
+```sh {background=true}
+ng version
+```
+
+```sh { background=true }
+❯ ng serve
+✔ Browser application bundle generation complete.
+
+Initial Chunk Files   | Names         |  Raw Size
+vendor.js             | vendor        |   2.42 MB | 
+polyfills.js          | polyfills     | 314.29 kB | 
+styles.css, styles.js | styles        | 211.01 kB | 
+main.js               | main          | 145.19 kB | 
+runtime.js            | runtime       |   6.53 kB | 
+
+                      | Initial Total |   3.08 MB
+
+Build at: 2023-01-23T16:52:53.188Z - Hash: dc98a05c8957615c - Time: 3331ms
+
+** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
+
+
+✔ Compiled successfully.
+```
+
+Como viene siendo habitual en las aplicaciones de Angular, la aplicación se alojará por defecto en la siguiente URL `http://localhost:4200`, y se recargará de forma automática segun se salven los cambios en el proyecto.
+
+También es posible compilar de forma manual el proyecto para generar los artefactos para el despliegue con `ng build`, los artefactos serán almacenados en el directorio `dist/`.
 
 ## Autor/es
+
 ---
+
 Nombra a el/los autor/es original/es. Consulta con ellos antes de publicar un email o un nombre personal. Una manera muy común es dirigirlos a sus cuentas de redes sociales.
 
 ## Información adicional
+
 ---
+
 Esta es la sección que permite agregar más información de contexto al proyecto como alguna web de relevancia, proyectos similares o que hayan usado la misma tecnología.
