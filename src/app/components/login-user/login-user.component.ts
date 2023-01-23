@@ -13,27 +13,11 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./login-user.component.css']
 })
 export class LoginUserComponent {
-  public users: User[] = []; 
-  
   nick: any;
   password: any;
   
   constructor(private loginService: LoginUserService, private router: Router, private cookie: CookieService) { }
 
-  ngOnInit(): void {  
-    this.getUsers();
-  }
-
-  public getUsers(): void {
-    this.loginService.getUsers().subscribe(
-      (response: User[]) => {
-        this.users = response
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message)
-      }
-    )
-  }
 
   public onSignIn(addForm: NgForm): void {
     const loginForm = addForm;
