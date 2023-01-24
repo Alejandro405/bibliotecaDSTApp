@@ -23,10 +23,7 @@ Cada uno de los componentes lleva asociada un fichero css para estilizar el cont
 
 Para facillitar el tratamiento de la ionteractuación con el usuario, es recomendable separarar la realización de consulatas al Back-End con el manejo de dichas consultas, para ello se usan los Services. Un Service es un módulo de la aplicación que se encarga de recoger la lógica necesaria para interactiuar con el Back-End, de esta forma los "Component" solo se han de encargar de presentar el resulado de dichas interactuaciones.
 
-
-![](./demo/AngularArch.png)
-
-![](./demo/Screencast%20from%202023-01-24%2013-00-19.gif)
+![](./demo/guard.gif)
 
 ## Guía de instalación
 ---
