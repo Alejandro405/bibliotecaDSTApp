@@ -1,6 +1,7 @@
 <h1 align="center">Aplicacion Front-End del Catálogo Digital  de la Librería</h1>
 <p align="center"> Logo e imagen o gif de la interfaz principal de la herramienta</p>
-<p align="center"><img src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ffiles.logoscdn.com%2Fv1%2Fassets%2F13817708%2Foptimized&sp=1674488654T98dd8a26a60434181c6c96a20ea45c880419f0f89c0ec5b03f1a74b7c118860e"/></p> 
+<p align="center"><img src="https://files.logoscdn.com/v1/assets/13817708/optimized"/></p> 
+
 
 ## Tabla de contenidos:
 
@@ -12,13 +13,20 @@
 - [Información adicional](#información-adicional)
 
 ## Descripción y contexto
-
 ---
 
-Siguiendo con la arquitectura cliente-servidor, esta aplicación tiene como objetivo efectuar peticiones a la aplicación de backend para capturar las respuestas del backend y mostrarla al usuario. De este modo la aplicacion de Front-End actuaría a modo de cliente mientras que la aplicación de Back-End actuaría como servidor .
+Siguiendo con la arquitectura cliente-servidor, esta aplicación tiene como objetivo efectuar peticiones a la aplicación de backend para capturar las respuestas del backend y mostrarla al usuario. De este modo la aplicacion de Front-End actuaría a modo de cliente mientras que la aplicación de Back-End actuaría como servidor.
 
-![](https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fcynoteck.com%2Fwp-content%2Fuploads%2F2021%2F12%2FWeb-Application-Architecture-diagram-3.png&sp=1674493724T5de838e74699e59bd98b565f0fc9e8da75e2325643b22aa2edfc2fb86d54ba90)
+Las aplicacione hechas con Angular se basan en tres pilares fundamentales: Tempplate, Component, Service. El template representa tanto el continente y el contenido que se le presenta al usuario final. Cada sección del contenido de la aplicacion (catálogo, registro, inicio de sesión...) se modela mediante un componente, cada uno de estos componentes son renderizados en la misma pagina en función de la interactuación del cliente. 
 
+Cada uno de los componentes lleva asociada un fichero css para estilizar el contenido del componente, un fichero html que define la estructura de la información del componente, y un fichero typescript encargado de encapsular el tratamiento de la interactiuación con el ususario.
+
+Para facillitar el tratamiento de la ionteractuación con el usuario, es recomendable separarar la realización de consulatas al Back-End con el manejo de dichas consultas, para ello se usan los Services. Un Service es un módulo de la aplicación que se encarga de recoger la lógica necesaria para interactiuar con el Back-End, de esta forma los "Component" solo se han de encargar de presentar el resulado de dichas interactuaciones.
+
+
+![](./demo/AngularArch.png)
+
+![](./demo/Screencast%20from%202023-01-24%2013-00-19.gif)
 
 ## Guía de instalación
 ---
