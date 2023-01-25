@@ -8,10 +8,9 @@
 ---
 
 - [Descripción y contexto](#descripción-y-contexto)
-- [funcionalidades de la Aplicación](#funcionalidades-de-la-aplicación)
+- [Funcionalidades de la Aplicación](#funcionalidades-de-la-aplicación)
 - [Guía de instalación](#guía-de-instalación)
 - [Autor/es](#autores)
-- [Información adicional](#información-adicional)
 
 ## Descripción y contexto
 ---
@@ -33,20 +32,41 @@ La aplicación está centrada en ofrecer las principales fincionalidades de la p
 
 El objetivo es administar y consultar el catálogo de la librería, para ello diponemos de medios para agregar, eliminar, editar y buscar libros dentro del catálogo. Para estas operaciones se hace uso del plugin modal JavaScript de Bootstrap, que permite generar pop ups sobre el componente que se esté mostrando en cada momento. 
 
-Añadiendo libros al catálogo:
+
+### __Añadiendo libros al catálogo:__
 ![](./demo/addBook.gif)
 
-Buscando libros dentro del catálogo:
+
+### __Buscando libros dentro del catálogo:__
+
 ![](./demo/searchBook.gif)
 
-Eliminando libros del catálogo:
+### __Eliminando libros del catálogo:__
+
 ![](./demo/delBook.gif)
 
 
-asdfasdfasdfasdfasdfasdfasdf
-Edic, agreg, elim, busqueda de libros
+La aplicación también es capaz de logear y registrar usuarios en la plataforma, además de restringir el acceso al catálogo `localhost:4200/catalog` a usuarios registrados y con una sesión activa dentro de la aplicación.
 
-Creación de usuarios (restricciones), login y guards (CookieService) 
+![](./demo/GuardDemo.gif)
+
+Para la implementacion de esta funcionalidad es necesario hacer uso de un recurso de angular conocido como `guard` que se encarga de restringir el acceso al contenido de los componentes de la aplicación. Los guards son facilmente generables atraves del cli de angular mediante `ng generate guard <GuardName>`, dentro de cada guard debemos definir las condicioes que han de satisfacer para renderizar el componente dentro de la página principal del aplicación, por último, una vez definidas las reglas del guard, hay que mapear el guard con la ruta y el componente asociado a la ruta dentro del fichero `app.module.ts`:
+
+``` {r}
+{  
+     ...
+     path: 'catalog',canActivate: [CatalogGuardGuard], canLoad: [CatalogGuardGuard], component: CatalogComponent, 
+     ...
+     }
+```
+
+Por último para almacenar el estado de la sesión actula del usuario, información que será consultada dentro del guard, tanto el componente de loggin, y el guard tienen una variable privada `private cookieService: CookieService` con la que acceder y manipular el estado de la sesión del usuario mediante las siguientes expresiones: 
+
+```{ts}
+     this.cookie.set("SessionStatus", "Logged")
+     this.cookieService.check('SessionStatus') && this.cookieService.get('SessionStatus') === 'Logged'
+ ```
+
 
 ## Guía de instalación
 ---
@@ -123,9 +143,3 @@ También es posible compilar de forma manual el proyecto para generar los artefa
 [Alejandro Téllez Montiel](https://github.com/Alejandro405/bibliotecaDSTApp)           
 Ale.t@uma.es   
 @Alejandro405
-
-## Información adicional
-
----
-
-Esta es la sección que permite agregar más información de contexto al proyecto como alguna web de relevancia, proyectos similares o que hayan usado la misma tecnología.
