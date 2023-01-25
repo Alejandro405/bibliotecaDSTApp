@@ -8,6 +8,7 @@
 ---
 
 - [Descripción y contexto](#descripción-y-contexto)
+- [funcionalidades de la Aplicación](#funcionalidades-de-la-aplicación)
 - [Guía de instalación](#guía-de-instalación)
 - [Autor/es](#autores)
 - [Información adicional](#información-adicional)
@@ -25,7 +26,27 @@ Para facillitar el tratamiento de la ionteractuación con el usuario, es recomen
 
 ![](./demo/AngularArch.png)
 
-![](./demo/GuardDemo.gif)
+## Funcionalidades de la Aplicación
+---
+
+La aplicación está centrada en ofrecer las principales fincionalidades de la prácticas dos y tres de la asignatura, servir un catálogo digital de una librería en el que para acceder a ciertas funcionalidades del mismo es necesario estar registrado dentro de la aplicación. 
+
+El objetivo es administar y consultar el catálogo de la librería, para ello diponemos de medios para agregar, eliminar, editar y buscar libros dentro del catálogo. Para estas operaciones se hace uso del plugin modal JavaScript de Bootstrap, que permite generar pop ups sobre el componente que se esté mostrando en cada momento. 
+
+Añadiendo libros al catálogo:
+![](./demo/addBook.gif)
+
+Buscando libros dentro del catálogo:
+![](./demo/searchBook.gif)
+
+Eliminando libros del catálogo:
+![](./demo/delBook.gif)
+
+
+asdfasdfasdfasdfasdfasdfasdf
+Edic, agreg, elim, busqueda de libros
+
+Creación de usuarios (restricciones), login y guards (CookieService) 
 
 ## Guía de instalación
 ---
@@ -95,11 +116,13 @@ Como viene siendo habitual en las aplicaciones de Angular, la aplicación se alo
 
 También es posible compilar de forma manual el proyecto para generar los artefactos para el despliegue con `ng build`, los artefactos serán almacenados en el directorio `dist/`.
 
-## Autor/es
+## Autor
 
 ---
 
-Nombra a el/los autor/es original/es. Consulta con ellos antes de publicar un email o un nombre personal. Una manera muy común es dirigirlos a sus cuentas de redes sociales.
+[Alejandro Téllez Montiel](https://github.com/Alejandro405/bibliotecaDSTApp)           
+Ale.t@uma.es   
+@Alejandro405
 
 ## Información adicional
 
