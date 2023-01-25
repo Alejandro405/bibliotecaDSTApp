@@ -33,15 +33,15 @@ La aplicación está centrada en ofrecer las principales fincionalidades de la p
 El objetivo es administar y consultar el catálogo de la librería, para ello diponemos de medios para agregar, eliminar, editar y buscar libros dentro del catálogo. Para estas operaciones se hace uso del plugin modal JavaScript de Bootstrap, que permite generar pop ups sobre el componente que se esté mostrando en cada momento. 
 
 
-### __Añadiendo libros al catálogo:__
+#### __Añadiendo libros al catálogo:__
 ![](./demo/addBook.gif)
 
 
-### __Buscando libros dentro del catálogo:__
+#### __Buscando libros dentro del catálogo:__
 
 ![](./demo/searchBook.gif)
 
-### __Eliminando libros del catálogo:__
+#### __Eliminando libros del catálogo:__
 
 ![](./demo/delBook.gif)
 
