@@ -142,4 +142,4 @@ También es posible compilar de forma manual el proyecto para generar los artefa
 
 [Alejandro Téllez Montiel](https://github.com/Alejandro405/bibliotecaDSTApp)           
 Ale.t@uma.es   
-@Alejandro405
+Alejandro405
