@@ -36,6 +36,102 @@ El objetivo es administar y consultar el catálogo de la librería, para ello di
 #### __Añadiendo libros al catálogo:__
 ![](./demo/addBook.gif)
 
+En este caso tenemos un formulario en la ventana modal para guardar el libro, que se "envía" a la aplicacion al pulsar el boton de "Save Changes":
+
+
+```{html}
+<form #addForm="ngForm" (ngSubmit)="onAddBook(addForm)">
+   <div class="form-group">
+      <label for="author">Autor</label>
+      <input type="text" ngModel name="author" class="form-control" id="author" placeholder="Autor"
+         required />
+   </div>
+   <div class="form-group">
+      <label for="title">Título</label>
+      <input type="text" ngModel name="title" class="form-control" id="title" placeholder="Título"
+         required />
+   </div>
+   <div class="form-group">
+      <label for="summary">Resumen</label>
+      <input type="text" ngModel name="summary" class="form-control" id="summary" placeholder="Resumen"
+         required />
+   </div>
+   <div class="form-group">
+      <label for="imgURL">Imagen URL</label>
+      <input type="text" ngModel name="imgURL" class="form-control" id="imgURL" placeholder="Imagen URL"
+         required />
+   </div>
+   <div class="modal-footer">
+      <button type="button" id="add-book-form" class="btn btn-secondary" data-dismiss="modal">
+         Close
+      </button>
+      <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">
+         Save changes
+      </button>
+   </div>
+</form>
+```
+
+En la etiqueta de formulario se añade la etiqueta (ngSubmit)="onAddBook(addForm)", lo que hacemos con esto es que al enviar el formulario (click en el boton "Save Changes"), pasamos dicho forulario como argumento al método onAddBook() del fichero typescript del componente (catalog.component.ts). Dicho método tiene como misión: almacenar el nuevo libro en el backend y cerrar la ventana modal:
+
+```{ts}
+@Component({
+  selector: 'app-catalog',
+  templateUrl: './catalog.component.html',
+  styleUrls: ['./catalog.component.css']
+})
+export class CatalogComponent {
+
+  //title = 'bibliotecaDSTApp';
+  public books: Book[] = [];
+
+  public editBook: Book | undefined;
+  public deleteBook: Book | undefined;
+
+  constructor(private bookService: BookService) { }
+  
+  // Resto del código
+  
+  public onAddBook(addForm: NgForm): void {
+    document.getElementById('add-book-form')!.click();
+    this.bookService.addBook(addForm.value).subscribe(
+      (response: Book) => {
+        console.log(response);
+        this.getBooks();
+        addForm.reset();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        addForm.reset();
+      }
+    );
+  }
+}
+```
+
+Como se dijo anteriormente, la comunicación con el backend no se hs de hacer desde el código del componente, debemos separar la aplicación en capas. Por eso, para almacenar el nuevo libro, se llama al método addBook del servicio BookService, que será el encargado de lanzar la peticion http correspondiente. Al final lo que se hace es delegar la interactuación con el backend a la capa de servicio, así solo nos preocupamos de controlar y manipular la interactuación del cliente con la aplicación, teniendo encuenta la resolución de la peticion http. En este caso basta con cerrar la ventana modal con la primera línea del método, que extrae el elemento del DOM con id "add-book-form" y cierra la ventana modal, simulando el click que haria el usuario para cerrar la ventana manualmente.
+
+
+```{ts}
+@Injectable({
+    providedIn: 'root'
+})
+export class BookService {
+    private apiServerUrl = environment.apiBaseUrl.concat("/book");
+
+    constructor(private http: HttpClient) {}
+    
+    // ...
+
+    public addBook(book: Book | undefined): Observable<Book> {
+        return this.http.post<Book>(`${this.apiServerUrl}/add`, book);
+    }
+    
+    // ...
+}
+```
+
+Como se vé, el servicio solamente se encarga de enviar las peticiones al backend.
 
 #### __Buscando libros dentro del catálogo:__
 
