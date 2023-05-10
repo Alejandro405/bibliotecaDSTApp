@@ -19,9 +19,9 @@ Siguiendo con la arquitectura cliente-servidor, esta aplicación tiene como obje
 
 Las aplicacione hechas con Angular se basan en tres pilares fundamentales: Tempplate, Component, Service. El template representa tanto el continente y el contenido que se le presenta al usuario final. Cada sección del contenido de la aplicacion (catálogo, registro, inicio de sesión...) se modela mediante un componente, cada uno de estos componentes son renderizados en la misma pagina en función de la interactuación del cliente. 
 
-Cada uno de los componentes lleva asociada un fichero css para estilizar el contenido del componente, un fichero html que define la estructura de la información del componente, y un fichero typescript encargado de encapsular el tratamiento de la interactiuación con el ususario.
+Cada uno de los componentes lleva asociada un fichero html que define la estructura de la información del componente, un fichero css para estilizar el contenido del componente, y un fichero typescript encargado de encapsular el tratamiento de la interactiuación con el ususario con el componente (Botones, búsquedas, selecciones, ...).
 
-Para facillitar el tratamiento de la ionteractuación con el usuario, es recomendable separarar la realización de consulatas al Back-End con el manejo de dichas consultas, para ello se usan los Services. Un Service es un módulo de la aplicación que se encarga de recoger la lógica necesaria para interactiuar con el Back-End, de esta forma los "Component" solo se han de encargar de presentar el resulado de dichas interactuaciones.
+Para facillitar el tratamiento de la interactuación con el usuario, es recomendable separarar el control de las interactuaciones del cliente y el componente, con las consultas de información al back-end, para ello se usan los Services. Un Service es un módulo de la aplicación que se encarga de recoger la lógica necesaria para interactiuar con el Back-End, de esta forma los "Component" solo se han de encargar de presentar el resulado de dichas interactuaciones, y variar la forma del componente en función de la interacciones del usuario.
 
 ![](./demo/AngularArch.png)
 
